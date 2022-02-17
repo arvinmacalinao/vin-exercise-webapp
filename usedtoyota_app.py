@@ -121,7 +121,7 @@ mpg = st.sidebar.slider("Miles/Gallon:", 0.1, 100.0, 50.0)
 
 engineSize = st.sidebar.slider("Engine Size:", 0.1, 4.5, 1.5)
 
-st.subheader('Output Car Price')
+st.title('Output Car Price')
 # Model filename
 filename = 'finalized_model.sav'
 
@@ -131,4 +131,4 @@ loaded_model = joblib.load(filename)
 # prediction
 prediction = round(loaded_model.predict([[year, mileage, mpg, engineSize] + model_list + tran_list + fuel_list])[0])
 
-st.write(f"Your car suggester price is: {prediction}")
+st.subheader(f"Your car suggester price is: ${prediction}")

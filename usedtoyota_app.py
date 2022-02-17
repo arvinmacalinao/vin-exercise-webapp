@@ -10,11 +10,6 @@ data = pd.read_csv("toyota_regression.csv")
 st.title("Used Toyota Cars Pricing Application")
 st.write("From the used toyota car data, we built a machine learning model for pricing of used cars.")
 
-#Display 20 rows of the dataframe
-df = pd.DataFrame(data)
-st.write("list of Used Car Pricing:")
-df1 = df.head(20)
-
 # Side bars
 st.sidebar.title("Used Toyota Car")
 option_sidebar = st.sidebar.selectbox("Would you like to show Data?", ('No', 'Yes'))
@@ -111,6 +106,11 @@ loaded_model = joblib.load(filename)
 prediction = round(loaded_model.predict([[year, mileage, mpg, engineSize] + model_list + tran_list + fuel_list])[0])
 
 st.subheader(f"Your car suggester price is: ${prediction}")
+
+#Display 20 rows of the dataframe
+df = pd.DataFrame(data)
+st.write("list of Used Car Pricing:")
+df1 = df.head(20)
 
 #Charts
 chart_data = pd.DataFrame(

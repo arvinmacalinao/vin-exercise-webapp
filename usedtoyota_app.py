@@ -15,27 +15,6 @@ df = pd.DataFrame(data)
 st.write("list of Used Car Pricing:")
 df1 = df.head(20)
 
-
-#Charts
-chart_data = pd.DataFrame(
-    data.head(30),
-    columns=['price', 'mpg', 'mileage']
-)
-st.line_chart(chart_data)
-
-chart_data = pd.DataFrame(
-    data.head(30),
-    columns=['price', 'mpg', 'mileage']
-)
-st.bar_chart(chart_data)
-
-chart_data = pd.DataFrame(
-    data.head(30),
-    columns=['price', 'mpg', 'mileage']
-)
-st.area_chart(chart_data)
-
-
 # Side bars
 st.sidebar.title("Used Toyota Car")
 option_sidebar = st.sidebar.selectbox("Would you like to show Data?", ('No', 'Yes'))
@@ -132,3 +111,22 @@ loaded_model = joblib.load(filename)
 prediction = round(loaded_model.predict([[year, mileage, mpg, engineSize] + model_list + tran_list + fuel_list])[0])
 
 st.subheader(f"Your car suggester price is: ${prediction}")
+
+#Charts
+chart_data = pd.DataFrame(
+    data.head(30),
+    columns=['price', 'mpg', 'mileage']
+)
+st.line_chart(chart_data)
+
+chart_data = pd.DataFrame(
+    data.head(30),
+    columns=['price', 'mpg', 'mileage']
+)
+st.bar_chart(chart_data)
+
+chart_data = pd.DataFrame(
+    data.head(30),
+    columns=['price', 'mpg', 'mileage']
+)
+st.area_chart(chart_data)
